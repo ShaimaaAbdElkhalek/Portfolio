@@ -1,343 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Shaimaa Abd Elkhalek - Data Analyst Portfolio</title>
-<style>
-  /* Reset */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0; padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0f172a;
-    color: #e0e7ff;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    min-height: 100vh;
-  }
-  a {
-    color: #6366f1;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #a5b4fc;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  header {
-    position: fixed;
-    width: 100%;
-    background: #1e293b;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.5);
-  }
-  header .logo {
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: #6366f1;
-    letter-spacing: 2px;
-    cursor: default;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  }
-  nav ul li {
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  nav ul li a {
-    padding: 0.3rem 0;
-    position: relative;
-  }
-  nav ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: -5px;
-    width: 0%;
-    height: 2px;
-    background: #6366f1;
-    transition: width 0.3s ease;
-  }
-  nav ul li a:hover::after,
-  nav ul li a.active::after {
-    width: 100%;
-  }
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  main {
-    padding: 6rem 2rem 4rem;
-    max-width: 960px;
-    margin: 0 auto;
-  }
+    <meta name="copyright" content="MACode ID, https://www.macodeid.com/" />
 
-  /* Hero Section */
-  .hero {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-  .hero h1 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 0.2rem;
-    color: #a5b4fc;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .hero h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #818cf8;
-    animation: fadeInUp 1.2s ease forwards;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .hero p {
-    font-size: 1.25rem;
-    max-width: 520px;
-    margin: 0 auto;
-    color: #c7d2fe;
-    animation: fadeInUp 1.4s ease forwards;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+    <title>Shaimaa Abd Elkhalek - Portfolio</title>
 
-  /* About Section */
-  #about {
-    background: #1e293b;
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.6);
-    margin-bottom: 5rem;
-    line-height: 1.7;
-  }
-  #about h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #a5b4fc;
-    font-weight: 700;
-    text-align: center;
-  }
-  #about p {
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
-    color: #d1d5db;
-  }
-  #about ul {
-    max-width: 700px;
-    margin: 1rem auto 0;
-    color: #9ca3af;
-    list-style-type: none;
-    text-align: center;
-    font-weight: 600;
-  }
-  #about ul li {
-    margin-bottom: 0.25rem;
-  }
-  .btn-download {
-    display: block;
-    margin: 2rem auto 0;
-    background: #6366f1;
-    color: white;
-    padding: 0.85rem 2.5rem;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-align: center;
-    width: max-content;
-    box-shadow: 0 8px 20px rgb(99 102 241 / 0.5);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  .btn-download:hover {
-    background: #4f46e5;
-    box-shadow: 0 12px 30px rgb(79 70 229 / 0.7);
-  }
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/themify-icons.css"
+    />
 
-  /* Skills Section */
-  #skills {
-    margin-bottom: 5rem;
-  }
-  #skills h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-    color: #a5b4fc;
-    font-weight: 700;
-  }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
-    gap: 2rem;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .skill-card {
-    background: #334155;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgb(0 0 0 / 0.4);
-    text-align: center;
-    cursor: default;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgb(99 102 241 / 0.7);
-  }
-  .skill-card img {
-    max-width: 48px;
-    margin-bottom: 0.75rem;
-    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
-  }
-  .skill-card span {
-    font-weight: 600;
-    font-size: 1rem;
-    color: #c7d2fe;
-  }
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
 
-  /* Portfolio Section */
-  #portfolio {
-    margin-bottom: 5rem;
-  }
-  #portfolio h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #a5b4fc;
-    font-weight: 700;
-  }
-  .filters {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  .filters button {
-    background: transparent;
-    border: 2px solid #6366f1;
-    color: #6366f1;
-    padding: 0.5rem 1.5rem;
-    margin: 0 0.5rem;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .filters button.selected,
-  .filters button:hover {
-    background: #6366f1;
-    color: white;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 2rem;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  .project-card {
-    background: #1e293b;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.4);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 40px rgb(99 102 241 / 0.8);
-  }
-  .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    filter: brightness(0.9);
-  }
-  .project-card .caption {
-    padding: 1rem 1.2rem;
-    flex-grow: 1;
-  }
-  .project-card .caption h5 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-    color: #c7d2fe;
-  }
-  .project-card .caption a {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: #818cf8;
-    word-break: break-word;
-  }
-  .project-card .caption a:hover {
-    color: #a5b4fc;
-  }
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/animate/animate.css"
+    />
 
-  /* Contact Section */
-  #contact {
-    text-align: center;
-    padding: 2rem 2rem;
-    background: #1e293b;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.6);
-  }
-  #contact h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #a5b4fc;
-    font-weight: 700;
-  }
-  #contact p {
-    color: #c7d2fe;
-    max-width: 480px;
-    margin: 0 auto 1rem;
-  }
-  #contact a {
-    color: #6366f1;
-    font-weight: 600;
-  }
-  #contact a:hover {
-    color: #a5b4fc;
-  }
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/owl-carousel/owl.carousel.css"
+    />
 
-  /* Responsive */
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 2.25rem;
-    }
-    .hero h2 {
-      font-size: 1.5rem;
-    }
-    .hero p {
-      font-size: 1rem;
-    }
-  }
-</style>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/perfect-scrollbar/css/perfect-scrollbar.css"
+    />
 
-<header>
-  <div class="logo">Shaimaa Abd Elkhalek</div>
-  <nav>
-    <ul>
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#portfolio">Portfolio</a></
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/nice-select/css/nice-select.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/vendor/fancybox/css/jquery.fancybox.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/virtual.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/minibar.virtual.css"
+    />
+  </head>
+  <body class="theme-red">
+    <!-- Back to top button -->
+    <div class="btn-back_to_top">
+      <span class="ti-arrow-up"></span>
+    </div>
+
+    <div class="topbar-nav fixed-top">
+      <div class="brand">
+        <img src="assets/favicon.ico" alt="" width="30" height="30" />
+      </div>
+      <h3 class="ml-1">Shaimaa Abd Elkhalek</h3>
+      <button class="btn-fab toggle-menu mr-3">
+        <span class="ti-menu"></span>
+      </button>
+    </div>
+
+    <!-- Minibar -->
+    <div class="minibar">
+      <div class="header">
+        <div class="brand"></div>
+      </div>
+      <div class="content">
+        <ul class="main-menu">
+          <li class="menu-item active">
+            <a href="#home" class="menu-link">
+              <span class="icon ti-home"></span>
+              <span class="caption">Home</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#about" class="menu-link">
+              <span class="icon ti-user"></span>
+              <span class="caption">About</span>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="#portfolio" class="menu-link">
+              <span class="icon ti-briefcase"></span>
+              <span class="caption">Portfolio</span>
+            </a>
+          </li>
+
+          <li class="menu-item">
+            <a href="#contact" class="menu-link">
+              <span class="icon ti-location-pin"></span>
+              <span class="caption">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vg-main-wrapper">
+      <div
+        class="vg-page page-home"
+        id="home"
+        style="background-image: url(assets/img/news_standard.png)"
+      >
+        <div class="caption wow zoomInUp">
+          <h1 class="fw-normal">Welcome</h1>
+          <h2 class="fw-medium fg-theme">I'm Shaimaa Abd Elkhalek</h2>
+          <p class="tagline">Data Analyst</p>
+        </div>
+      </div>
+
+      <!-- Page About -->
+      <div class="vg-page page-about" id="about">
+        <!-- Profile -->
+        <div class="container py-3">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-10">
+              <div class="caption wow fadeInRight">
+                <h2 class="fg-dark">About me</h2>
+                <p class="fg-theme fw-medium">Data Analyst</p>
+                <p>
+                I'm Shaimaa, a junior data analyst with a background in Biomedical Engineering and a growing passion for uncovering insights and supporting better decisions through data. Since April 2024, I’ve been applying my knowledge through real-world projects and case studies.
+
+I enjoy helping organizations make sense of their data — from organizing information to presenting clear, impactful insights.
+                  I'm available for entry-level roles, freelance projects, or part-time and full-time opportunities, and I'm always open to collaborations that allow me to learn and contribute through data.
+
+
+                </p>
+                <ul class="theme-list">
+                  <li class="fg-dark">
+                    <b>From:</b> Giza, Egypt
+                  </li>
+                  
+                </ul>
+                <a
+                  href="assets/img/Shaimaa_Abd_Elkhalek.pdf"
+                  download="Shaimaa Abd Elkhalek - Resume"
+                  class="btn btn-theme btn-rounded"
+                  >Download CV</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End profile -->
+<!-- Skills -->
+<div class="container mt-5">
+  <h1 class="text-center fg-dark wow fadeInUp">My Skills</h1>
+  <br />
+  <br />
+  <div class="flex-box">
+    <div class="skill-box wow fadeInUp">
+      <div>
+        <div class="skill-logo-container">
+          <img src="assets/icons/sql.svg" alt="sql-logo" />
+        </div>
+        <span>SQL</span>
+      </div>
+    </div>
+
+    <div class="skill-box wow fadeInUp">
+      <div>
+        <div class="skill-logo-container">
+          <img src="assets/icons/python.svg" alt="python-logo" />
+        </div>
+        <span>Python</span>
+      </div>
+    </div>
+
+    <div class="skill-box wow fadeInUp">
+      <div>
+        <div class="skill-logo-container">
+          <img src="assets/img/images.jpg" alt="Power BI-logo" />
+        </div>
+        <span>Power BI</span>
+      </div>
+    </div>
+
+    <div class="skill-box wow fadeInUp">
+      <div>
+        <div class="skill-logo-container">
+          <img src="assets/icons/excel.svg" alt="excel-logo" />
+        </div>
+        <span>Microsoft Excel</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End skills -->
+
+        <!-- Resume -->
+        <div class="container pt-5"></div>
+        <!-- End resume -->
+      </div>
+      <!-- End page about -->
+
+      <!-- Page Service -->
+
+      <!-- Testimonials -->
+      <div class="vg-page p-0" id="testimonial"></div>
+      <!-- End testimonial -->
+
+
+      <!-- Portfolio page --> 
+<div class="vg-page page-portfolio" id="portfolio">
+  <div class="container">
+    <div class="text-center wow fadeInUp">
+      <div class="badge badge-subhead">Portfolio</div>
+    </div>
+    <h1 class="text-center fw-normal wow fadeInUp">See my work</h1>
+    <div
+      class="filterable-button py-3 wow fadeInUp"
+      data-toggle="selected"
+    >
+      <button class="btn btn-theme-outline selected" data-filter="*">
+        All
+      </button>
+      <button class="btn btn-theme-outline" data-filter=".ai-data-science">
+        AI & Data Science
+      </button>
+      <button class="btn btn-theme-outline" data-filter=".python">
+        Python Projects
+      </button>
+      <button class="btn btn-theme-outline" data-filter=".template">
+        Dashboards
+      </button>
+    </div>
+
+    <div class="gridder my-3">
+      <!-- AI & Data Science Projects -->
+      <div class="grid-item ai-data-science apps wow zoomIn">
+        <div class="img-place">
+          <a href="https://github.com/ShaimaaAbdElkhalek/Customer-Segmentation" target="_blank">
+            <img src="assets/img/work2/customer segmentation.png" alt="Customer Segmentation" />
+            <div class="img-caption">
+              <h5 class="fg-theme">Customer Segmentation</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-item ai-data-science apps wow zoomIn">
+        <div class="img-place">
+          <a href="https://github.com/ShaimaaAbdElkhalek/A-wearable-Behavioral-Aid-for-Autistic-Children" target="_blank">
+            <img src="assets/img/work2/wearable.png" alt="Wearable Behavioral Aid for Autistic Children" />
+            <div class="img-caption">
+              <h5 class="fg-theme">Wearable Behavioral Aid for Autistic Children</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Python Projects -->
+      <div class="grid-item python apps wow zoomIn">
+        <div class="img-place">
+          <a href="https://github.com/ShaimaaAbdElkhalek/IBM-HR-Analytics-Employee-Attrition-Performance" target="_blank">
+            <img src="assets/img/work2/Screenshot 2025-05-27 200554.png" alt="IBM HR Analytics: Employee Attrition & Performance Analysis" />
+            <div class="img-caption">
+              <h5 class="fg-theme">IBM HR Analytics: Employee Attrition & Performance Analysis</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-item python apps wow zoomIn">
+        <div class="img-place">
+          <a href="https://github.com/ShaimaaAbdElkhalek/Data-Science-in-Action-Laptop-Pricing-EDA-Wrangling-" target="_blank">
+            <img src="assets/img/work2/laptop.png" alt="Laptop Pricing EDA" />
+            <div class="img-caption">
+              <h5 class="fg-theme">Laptop Pricing EDA</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-item python apps wow zoomIn">
+        <div class="img-place">
+          <a href="https://github.com/ShaimaaAbdElkhalek/IRIS_EDA" target="_blank">
+            <img src="assets/img/work2/iris.png" alt="IRIS EDA" />
+            <div class="img-caption">
+              <h5 class="fg-theme">IRIS EDA</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-item python apps wow zoomIn">
+        <div class="img-place">
+          <a href="https://github.com/ShaimaaAbdElkhalek/Scraping-Jumia" target="_blank">
+            <img src="assets/img/work2/jumia.png" alt="Jumia iPhone Web Scraper and Data Analysis with Power Query" />
+            <div class="img-caption">
+              <h5 class="fg-theme">Jumia iPhone Web Scraper and Data Analysis</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Existing projects (example) -->
+      <!-- You can keep your other existing projects here -->
+
+    </div>
+    <!-- End gridder -->
+
+    <br>
+  </div>
+</div>
+<!-- End Portfolio page -->
