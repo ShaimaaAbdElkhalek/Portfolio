@@ -337,6 +337,7 @@
 .vg-page {
   position: relative;
   padding: 50px 16px;
+  color: #000000;
   z-index: 10;
   overflow: hidden;
 }
